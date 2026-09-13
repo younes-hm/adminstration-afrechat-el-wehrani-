@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | Afrechat El Wahrani</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="admin-body">
+
+    <header class="admin-header">
+        <div class="admin-header-container">
+            <a href="index.html" class="admin-logo">
+                Afrechat <span>El Wahrani</span> <small>(Admin)</small>
+            </a>
+            <a href="index.html" class="btn-secondary-admin" target="_blank">
+                <i class="fa-solid fa-eye"></i> Voir le Site
+            </a>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-container">
+
+            <!-- FORMULAIRE D'AJOUT -->
+            <section class="admin-card">
+                <h2><i class="fa-solid fa-plus-circle"></i> Ajouter un Produit</h2>
+                <form id="add-product-form" class="admin-form">
+                    
+                    <div class="form-group">
+                        <label for="prod-title">Nom du produit *</label>
+                        <input type="text" id="prod-title" placeholder="Ex: Couette Matelassée Royale" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prod-category">Catégorie *</label>
+                            <select id="prod-category" required>
+                                <option value="">-- Choisir une catégorie --</option>
+                                <option value="salon">Salon</option>
+                                <option value="rideaux">Rideaux</option>
+                                <option value="tapis">Tapis</option>
+                                <option value="literie">Literie</option>
+                                <option value="linge-de-bain">Linge de bain</option>
+                                <option value="accessoires">Accessoires</option>
+                                <option value="voyage">Voyage</option>
+                                <option value="matelas">Matelas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prod-price">Prix (DZD) *</label>
+                            <input type="text" id="prod-price" placeholder="Ex: 12000 DZD" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prod-image-file"><i class="fa-solid fa-image"></i> Choisir une image (Galerie / Fichier) *</label>
+                        <input type="file" id="prod-image-file" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prod-image-url"><i class="fa-solid fa-link"></i> Ou coller un lien d'image (URL)</label>
+                        <input type="text" id="prod-image-url" placeholder="Ex: https://.../image.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prod-desc">Description courte</label>
+                        <textarea id="prod-desc" rows="3" placeholder="Description du produit..."></textarea>
+                    </div>
+
+                    <button type="submit" id="btn-submit-form" class="btn-submit-admin">
+                        <i class="fa-solid fa-check"></i> Enregistrer le produit
+                    </button>
+                </form>
+            </section>
+
+            <!-- LISTE DES PRODUITS -->
+            <section class="admin-card">
+                <div class="admin-card-header">
+                    <h2><i class="fa-solid fa-boxes-stacked"></i> Liste des Produits</h2>
+                    <span id="total-admin-products" class="badge-count">0 Produit</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Titre</th>
+                                <th>Catégorie</th>
+                                <th>Prix</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-products-table">
+                            <!-- JS load hna -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Script Admin unique -->
+    <script type="module" src="admin.js"></script>
+
+</body>
+
+</html>
